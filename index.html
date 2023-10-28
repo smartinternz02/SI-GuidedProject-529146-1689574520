@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Insurance Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        select {
+            background-color: #f9f9f9;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        p {
+            margin: 20px 0;
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Travel Insurance Prediction</h1>
+    
+    <form method="POST" action="/predict">
+        <label for="Age">Age:</label>
+        <input type="text" name="Age" required><br>
+        
+        <label for="EmploymentType">Employment Type:</label>
+        <select name="EmploymentType">
+            <option value="Private Sector/Self Employed">Private Sector/Self Employed</option>
+            <option value="Government Sector">Government Sector</option>
+        </select><br>
+        
+        <label for="AnnualIncome">Annual Income:</label>
+        <input type="text" name="AnnualIncome" required><br>
+        
+        <label for="FamilyMembers">Family Members:</label>
+        <input type="text" name="FamilyMembers" required><br>
+        
+        <label for="ChronicDiseases">Chronic Diseases:</label>
+        <select name="ChronicDiseases">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        
+        <label for="FrequentFlyer">Frequent Flyer:</label>
+        <select name="FrequentFlyer">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        
+        <label for="EverTravelledAbroad">Ever Travelled Abroad:</label>
+        <select name="EverTravelledAbroad">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        
+        <label for="GraduateOrNot">Are you a graduate?</label>
+        <select name="GraduateOrNot" id="GraduateOrNot">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if prediction_text %}
+        <p>Prediction: {{ prediction_text }}</p>
+    {% endif %}
+    
+</body>
+</html>
